@@ -3,7 +3,15 @@ import { ScrollView, View, Text, TextInput, Image, TouchableOpacity } from "reac
 import { styles } from "./style";
 
 
-export const LoginStackScreen = () => {
+export const LoginStackScreen = (props: any) => {
+
+    const handleGoRegister = () => {
+        props.navigation.navigate('Register');
+    }
+
+    const handleGoAppMain = () => {
+        props.navigation.navigate('Nome do App');
+    }
 
     return(
         <ScrollView style={styles.container}>
@@ -35,11 +43,17 @@ export const LoginStackScreen = () => {
                     secureTextEntry
                 />
 
-                <TouchableOpacity style={styles.buttonEnter}>
+                
+
+
+                <TouchableOpacity style={styles.buttonEnter} onPress={handleGoAppMain}>
                     <Text style={styles.buttonEnterText}>Entrar</Text>
                 </TouchableOpacity>
 
-                <Text style={styles.textNoAccount}>Não tem uma conta?<TouchableOpacity><Text style={styles.registerNow}>Registre-se
+                <Text style={styles.textNoAccount}>Não tem uma conta?
+                    <TouchableOpacity activeOpacity={0.7} onPress={handleGoRegister}>
+                    <Text style={styles.registerNow}>
+                    Registre-se
                     </Text></TouchableOpacity></Text>
 
             </View>
