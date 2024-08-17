@@ -68,5 +68,23 @@ export const style = StyleSheet.create({
 
     registerNow:{
         color: '#a079f0'
+    },
+
+    otherRegisterForm: {
+        display: 'flex',
+        flex: 1
+    },
+
+    otherRegisterFormText:{
+        color: '#eaeaea',
+        fontSize: 16,
+        marginBottom: 10
+    },
+
+    iconsArea:{
+        display: 'flex',
+        flex: 1,
+        flexDirection: 'row',
+        gap: 120
     }
 })
