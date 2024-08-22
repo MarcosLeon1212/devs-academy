@@ -7,6 +7,7 @@ import { RegisterScreen } from "../screens/StackScreens/RegisterScreen";
 import { AppScreen } from "../screens/StackScreens/AppStackScreen";
 import { AppTabScreen } from "../screens/TabScreens/AppTabScreen";
 import { MainTab } from "./MainTab";
+import { TeacherTab } from "./TeacherTab";
 
 
 
@@ -69,6 +70,7 @@ export const MainStack = (props: any) => {
                     }}
                 />
 
+
                 <Stack.Screen 
                     name="Tabs"
                     component={MainTab}
@@ -79,7 +81,10 @@ export const MainStack = (props: any) => {
                     }}
                 />
 
-
+                <Stack.Screen 
+                    name="Professor Tab"
+                    component={TeacherTab}
+                />
                    
             </Stack.Navigator>
         )

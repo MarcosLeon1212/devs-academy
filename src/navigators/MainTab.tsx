@@ -70,6 +70,17 @@ export const MainTab = () => {
             <Tab.Screen 
                 name="Home"
                 component={AppTabScreen}
+                options={{
+                    headerStyle:{
+                        backgroundColor:'#2d3846'
+                    },
+
+                    headerTitleStyle:{
+                        color:'#eaeaea'
+                    },
+
+                    title: 'Perfil'
+                }}
               
             />
 

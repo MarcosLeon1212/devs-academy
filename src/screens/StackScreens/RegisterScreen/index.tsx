@@ -1,8 +1,14 @@
 import React, { useState } from "react";
-import { ScrollView, View, Text, TextInput, Image, TouchableOpacity } from "react-native";
+import { ScrollView, View, Text, TextInput, Image, TouchableOpacity 
+
+} from "react-native";
 import { style } from "./styles";
-import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword } from "firebase/auth";
+import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, sendEmailVerification } from "firebase/auth";
+import { getFirestore, doc, setDoc } from "firebase/firestore";
 import { initializeApp } from "firebase/app";
+import { Picker } from '@react-native-picker/picker';
+
+
 
 export const RegisterScreen = (props: any) => {
 
@@ -17,22 +23,43 @@ export const RegisterScreen = (props: any) => {
     };
 
     const app = initializeApp(firebaseConfig);
-
+    const db = getFirestore(app);
 
     const handleGoToAppMain = () => {
-        props.navigation.navigate('Tabs');
+        if( entranceMode == 'Educador Físico'){
+            props.navigation.navigate('Professor Tab');
+        } else if(entranceMode == 'Aluno' ) {
+            props.navigation.navigate('Tabs');
+        }
     };
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [name, setName] = useState('');
+    const [entranceMode, setEntranceMode] = useState('Educador Físico');
+
+    
+
 
     const handleSingUp = () => {
         const auth = getAuth(app);
         createUserWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
             const user = userCredential.user
-            console.log('Usuário criado com sucesso: ', user);
+            console.log('Usuário criado com sucesso: ', user.uid);
+            
+
+            setDoc(doc(db, 'users', user.uid), {
+                email: user.email,
+                entranceMode,
+                name,
+                dateOfRegister: new Date()
+            })
+
+            sendEmailVerification
             handleGoToAppMain();
+            return true;
+           
         })
         .catch((error) => {
             const errorCode = error.code;
@@ -66,6 +93,14 @@ export const RegisterScreen = (props: any) => {
                     onChangeText={(t) => setEmail(t)}
                 />
 
+                <Text style={style.label}>Nome de usuário:</Text>
+                <TextInput 
+                    placeholder="Nome do usuário"
+                    placeholderTextColor='#aaa'
+                    style={style.input}
+                    onChangeText={(t) => setName(t)}
+                />
+
                 <Text style={style.label}>Senha:</Text>
                 <TextInput 
                     placeholder="Senha"
@@ -74,6 +109,20 @@ export const RegisterScreen = (props: any) => {
                     secureTextEntry
                     onChangeText={(t) => setPassword(t)}
                 />
+
+                <Text style={style.label}>Você vai entrar como:</Text>
+                <Picker 
+                    selectedValue={entranceMode}
+                    style={style.input}
+                    onValueChange={(itemValue, itemIndex) => setEntranceMode(itemValue)}
+                >
+
+                <Picker.Item  label="Educador Físico" value='Educador Físico'/>
+                <Picker.Item  label="Aluno" value="Aluno"/>
+                
+                </Picker>
+
+
 
                 <TouchableOpacity style={style.buttonEnter} onPress={handleSingUp}>
                     <Text style={style.buttonEnterText}>Criar Conta</Text>

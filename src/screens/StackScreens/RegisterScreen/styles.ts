@@ -29,7 +29,7 @@ export const style = StyleSheet.create({
         borderColor: '#eaeaea',
         borderWidth: 2,
         gap: 20,
-        height: 350
+        height: 600
     },
 
     label:{
@@ -86,5 +86,7 @@ export const style = StyleSheet.create({
         flex: 1,
         flexDirection: 'row',
         gap: 120
-    }
+    },
+
+   
 })

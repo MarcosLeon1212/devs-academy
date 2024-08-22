@@ -2,7 +2,9 @@ import React, { useState } from "react";
 import { ScrollView, View, Text, TextInput, Image, TouchableOpacity } from "react-native";
 import { styles } from "./style";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { getDoc, doc, getFirestore} from "firebase/firestore";
 import { initializeApp } from "firebase/app";
+import { RegisterScreen } from "../RegisterScreen";
 
 export const LoginStackScreen = (props: any) => {
 
@@ -17,18 +19,45 @@ export const LoginStackScreen = (props: any) => {
     };
 
     const app = initializeApp(firebaseConfig);
+    const db = getFirestore();
+
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
-    const handleSignIn = () => {
+
+   
+
+
+
+    const handleSignIn = async (userCredential: any) => {
         const auth = getAuth(app);
-        signInWithEmailAndPassword(auth, email, password)
-            .then((userCredential) => {
+        
+        const userCredentials = signInWithEmailAndPassword(auth, email, password)
+             .then ( (userCredential) => {
+                
+                const userLoginForm = async () => {
+                    const user = userCredential.user;
+                    const docUser = await getDoc(doc(db, 'users', user.uid ));
+            
+                    console.log('Usuário autenticado:', user);
+                
+                    if(docUser.exists()){
+                        const userData = docUser.data()
+                        const entranceMode = userData.entranceMode;
+            
+                        if(entranceMode == 'Educador Físico'){
+                            props.navigation.navigate('Professor Tab');
+
+                        } else if(entranceMode == 'Aluno'){
+                            props.navigation.navigate('Tabs');
+                        }
+                    }
+                }
+
+                userLoginForm();
+
                
-                const user = userCredential.user;
-                console.log('Usuário autenticado:', user);
-                handleGoToAppMain();
             })
             .catch((error) => {
                 const errorCode = error.code;
@@ -36,12 +65,13 @@ export const LoginStackScreen = (props: any) => {
                 console.error('Erro na autenticação:', errorCode, errorMessage);
                 alert('Email ou senha inválidos');
             });
+
+
+
+            
     };
 
-    const handleGoToAppMain = () => {
-        props.navigation.navigate('Tabs');
-    };
-
+   
     const handleGoToRegister = () => {
         props.navigation.navigate('Registro');
     }
