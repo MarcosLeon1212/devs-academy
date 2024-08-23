@@ -2,11 +2,11 @@ import React from "react";
 import { ScrollView, View, Text} from "react-native";
 
 
-export const ProTabScreen = () => {
+export const SpreadsheetsTabScreen = () => {
 
     return(
         <ScrollView>
-            <Text>Apenas um teste de tela de profissionais</Text>
+            <Text>Apenas um teste de tela de planilhas</Text>
         </ScrollView>
     )
 }

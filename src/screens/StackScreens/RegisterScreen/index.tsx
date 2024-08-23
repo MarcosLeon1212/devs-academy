@@ -28,7 +28,7 @@ export const RegisterScreen = (props: any) => {
     const handleGoToAppMain = () => {
         if( entranceMode == 'Educador Físico'){
             props.navigation.navigate('Professor Tab');
-        } else if(entranceMode == 'Aluno' ) {
+        } else if(entranceMode == 'Usuário Comum' ) {
             props.navigation.navigate('Tabs');
         }
     };
@@ -118,7 +118,7 @@ export const RegisterScreen = (props: any) => {
                 >
 
                 <Picker.Item  label="Educador Físico" value='Educador Físico'/>
-                <Picker.Item  label="Aluno" value="Aluno"/>
+                <Picker.Item  label="Usuário Comum" value="Usuário Comum"/>
                 
                 </Picker>
 

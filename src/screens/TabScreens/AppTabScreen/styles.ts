@@ -5,30 +5,91 @@ export const style = StyleSheet.create({
         backgroundColor: '#2d3846'
     },
 
+    generalProfileArea:{
+        backgroundColor: '#a000f0',
+        borderColor:'#a079f0',
+        borderWidth: 3,
+        height:260
+    },
+
+    nameAppArea:{
+        alignSelf: 'center',
+        marginTop:30
+    },
+
+    nameAppText:{
+        fontSize:18,
+        color: '#eaeaea'
+    },
+
     imageProfileArea:{
         borderColor: '#eaeaea',
-        marginTop: 10,
-        marginLeft: 20,
+        marginTop: 40,
         borderWidth: 2,
-        width: 80,
-        height: 80
+        alignContent: 'center',
+        alignSelf: 'center',
+        width: 100,
+        height: 100,
+        borderRadius: 50,
     },
 
     textTestProfileArea:{
         color: '#eaeaea'
     },
 
-    infosArea:{
-        marginTop: 80,
-        display: 'flex',
-        flex: 1,
-        position: 'relative',
-        left: 150
+    namePupilArea:{
+        alignSelf: 'center',
+        marginTop:10
     },
 
-    infosText:{
-        color: '#eaeaea',
-        fontSize: 16,
-        marginBottom: 16
+    namePupilText:{
+        color: 'white',
+        fontSize: 18
+    },
+
+    buttonsProfileArea:{
+        marginTop:40
+    },
+
+    buttonProfile :{
+        marginTop:40,
+        backgroundColor: '#a079f0',
+        display: 'flex',
+        flex: 1,
+        flexDirection: 'row',
+        borderRadius:8
+    },
+
+    firstAreaTwoButtons:{
+        display:'flex',
+        flex: 1,
+        flexDirection: 'row',
+    },
+
+    secondAreaTwoButtons:{
+        display:'flex',
+        flex: 1,
+        flexDirection: 'row'
+    },
+
+    spreadsheets:{
+        marginLeft: 30,
+        width:150,
+    },
+
+    infos:{
+        marginLeft: 20,
+        width: 150
+    },
+
+    training:{
+        marginLeft: 30,
+        width: 150
+    },
+
+    support:{
+        marginLeft: 20,
+        width: 150
     }
+
 })

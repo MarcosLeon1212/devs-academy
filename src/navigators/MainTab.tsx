@@ -4,8 +4,8 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { AppTabScreen } from "../screens/TabScreens/AppTabScreen";
 import { style } from "../screens/StackScreens/RegisterScreen/styles";
 import { TrainingTabScreen } from "../screens/TabScreens/TrainingTabScreen";
-import { ScheduleTabScreen } from "../screens/TabScreens/ScheduleTabScreen";
-import { ProTabScreen } from "../screens/TabScreens/ProTabScreen";
+import { InfosTabScreen} from "../screens/TabScreens/InfosTabScreen";
+import { SpreadsheetsTabScreen } from "../screens/TabScreens/SpreadsheetsTabScreen";
 import { ConfigTabScreen } from "../screens/TabScreens/ConfigTabScreen";
 
 
@@ -30,12 +30,12 @@ export const MainTab = () => {
                             imgSource = (require('../../assets/halteres.png'))
                         break;
 
-                        case 'Horários Agendados':
-                            imgSource = (require('../../assets/agenda.png'))
+                        case 'Informações':
+                            imgSource = (require('../../assets/infosTab.png'))
                         break;
 
-                        case 'Profissionais':
-                            imgSource = (require('../../assets/adulto.png'))
+                        case 'Planilhas Básicas':
+                            imgSource = (require('../../assets/agenda.png'))
                         break;
 
                         case 'Configurações':
@@ -62,8 +62,8 @@ export const MainTab = () => {
             />
 
             <Tab.Screen 
-                name="Profissionais"
-                component={ProTabScreen}
+                name="Planilhas Básicas"
+                component={SpreadsheetsTabScreen}
             />
 
 
@@ -85,8 +85,8 @@ export const MainTab = () => {
             />
 
             <Tab.Screen 
-                name="Horários Agendados"
-                component={ScheduleTabScreen}
+                name="Informações"
+                component={InfosTabScreen}
             />
 
             <Tab.Screen 

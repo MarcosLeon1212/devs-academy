@@ -4,8 +4,7 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { HomeStackScreen } from "../screens/StackScreens/HomeStackScreen";
 import { LoginStackScreen } from "../screens/StackScreens/LoginStackScreen";
 import { RegisterScreen } from "../screens/StackScreens/RegisterScreen";
-import { AppScreen } from "../screens/StackScreens/AppStackScreen";
-import { AppTabScreen } from "../screens/TabScreens/AppTabScreen";
+import { SupportStackScreen } from "../screens/StackScreens/SupportStackScreen";
 import { MainTab } from "./MainTab";
 import { TeacherTab } from "./TeacherTab";
 
@@ -84,6 +83,11 @@ export const MainStack = (props: any) => {
                 <Stack.Screen 
                     name="Professor Tab"
                     component={TeacherTab}
+                />
+
+                <Stack.Screen 
+                    name="Suporte"
+                    component={SupportStackScreen}
                 />
                    
             </Stack.Navigator>

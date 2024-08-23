@@ -1,13 +1,12 @@
 import React from "react";
 import { ScrollView, View, Text } from "react-native";
-import { style } from "./styles";
 
 
-export const AppScreen = () => {
+export const InfosTabScreen = () => {
 
     return(
         <ScrollView>
-            <Text>Olá a todos, sejam bem vindos a minha página</Text>
+            <Text>Página de informações pessoais colocadas pelo próprio usuário</Text>
         </ScrollView>
     )
 }

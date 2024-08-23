@@ -49,7 +49,7 @@ export const LoginStackScreen = (props: any) => {
                         if(entranceMode == 'Educador Físico'){
                             props.navigation.navigate('Professor Tab');
 
-                        } else if(entranceMode == 'Aluno'){
+                        } else if(entranceMode == 'Usuário Comum'){
                             props.navigation.navigate('Tabs');
                         }
                     }
@@ -111,7 +111,7 @@ export const LoginStackScreen = (props: any) => {
                     <Text style={styles.buttonEnterText}>Entrar</Text>
                 </TouchableOpacity>
 
-                <Text>Não tem uma conta?<TouchableOpacity onPress={handleGoToRegister}><Text style={styles.registerNow}>
+                <Text style={{color:'white'}}>Não tem uma conta?<TouchableOpacity onPress={handleGoToRegister}><Text style={styles.registerNow}>
                     Registre-se</Text></TouchableOpacity></Text>
             </View>
         </ScrollView>
