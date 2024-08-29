@@ -58,12 +58,30 @@ export const MainTab = () => {
             <Tab.Screen 
                 name="Treinos"
                 component={TrainingTabScreen}
+                options={{
+                    headerStyle:{
+                        backgroundColor: '#2d3846'
+                    },
+
+                    headerTitleStyle:{
+                        color: '#eaeaea'
+                    }
+                }}
                 
             />
 
             <Tab.Screen 
                 name="Planilhas Básicas"
                 component={SpreadsheetsTabScreen}
+                options={{
+                    headerStyle:{
+                        backgroundColor: '#2d3846'
+                    },
+
+                    headerTitleStyle:{
+                        color: '#eaeaea'
+                    }
+                }}
             />
 
 
@@ -87,11 +105,31 @@ export const MainTab = () => {
             <Tab.Screen 
                 name="Informações"
                 component={InfosTabScreen}
+                options={{
+                    headerStyle: {
+                        backgroundColor: '#2d3846'
+                    },
+                    
+                    headerTitleStyle:{
+                        color: 'white'
+                    }
+                }}
             />
 
             <Tab.Screen 
                 name="Configurações"
                 component={ConfigTabScreen}
+                options={{
+                    headerStyle:{
+                        backgroundColor: '#2d3846'
+                    },
+                    
+                    headerTitleStyle:{
+                        color: '#eaeaea'
+                    },
+
+                    
+                }}
             />
 
             

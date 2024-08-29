@@ -7,6 +7,7 @@ import { RegisterScreen } from "../screens/StackScreens/RegisterScreen";
 import { SupportStackScreen } from "../screens/StackScreens/SupportStackScreen";
 import { MainTab } from "./MainTab";
 import { TeacherTab } from "./TeacherTab";
+import { TrainingsStackScreen } from "../screens/StackScreens/TrainingsStackScreen";
 
 
 
@@ -88,6 +89,20 @@ export const MainStack = (props: any) => {
                 <Stack.Screen 
                     name="Suporte"
                     component={SupportStackScreen}
+                />
+
+                <Stack.Screen 
+                    name="Monte seu treino"
+                    component={TrainingsStackScreen}
+                    options={{
+                        headerStyle:{
+                            backgroundColor: '#2d3846'
+                        },
+
+                        headerTitleStyle:{
+                            color: '#eaeaea'
+                        }
+                    }}
                 />
                    
             </Stack.Navigator>

@@ -90,6 +90,11 @@ export const style = StyleSheet.create({
     support:{
         marginLeft: 20,
         width: 150
+    },
+
+    buttonProfilePhoto:{
+        alignSelf: 'center',
+        top: 20
     }
 
 })

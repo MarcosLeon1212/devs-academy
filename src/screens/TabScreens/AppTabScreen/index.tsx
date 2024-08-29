@@ -23,19 +23,19 @@ import { style } from "./styles";
       const db = getFirestore(app);
 
       const handleGotoSupport = () => {
-            props.navigation.navigate('Suporte')
+            props.navigation.navigate('Suporte');
       }
 
       const handleGoToSpreadsheets = () => {
-            props.navigation.navigate('Planilhas Básicas')
+            props.navigation.navigate('Planilhas Básicas');
       }
 
       const handleGoToInfos = () => {
-            props.navigation.navigate('Informações')
+            props.navigation.navigate('Informações');
       }
 
       const handleGoToTrains = () => {
-            props.navigation.navigate('Treinos')
+            props.navigation.navigate('Treinos');
       }
 
     return(
@@ -47,7 +47,9 @@ import { style } from "./styles";
                   </View>
 
                   <View style={style.imageProfileArea}>
-                        <Text style={style.textTestProfileArea}>Local de colocar a imagem</Text>
+                        <TouchableOpacity style={style.buttonProfilePhoto}>
+                              <Image source={require('../../../../assets/camera.png')} style={{width:50, height:50}}/>
+                        </TouchableOpacity>
                   </View>
 
                   <View style={style.namePupilArea}>
