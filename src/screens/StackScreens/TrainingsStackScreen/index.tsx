@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
-import { ScrollView, View, Text, FlatList, TouchableOpacity } from "react-native";
+import { ScrollView, View, Text, FlatList, TouchableOpacity, Image } from "react-native";
 import { initializeApp } from "firebase/app";
 import { getFirestore, getDocs, collection, query, where } from "firebase/firestore";
 import { styles } from "./style";
 
 
 
-export const TrainingsStackScreen = () => {
+export const TrainingsStackScreen = (props: any) => {
 
     type TrainingDataType = {
         id: string,
@@ -86,16 +86,29 @@ export const TrainingsStackScreen = () => {
         
         })
         setChests(data);
+
     }
 
     useEffect(() => {
         chestTraining();
     }, []);
 
+    
+    const handleClickTraining = async (item: any) => {
+        console.log('Clicou em: ', item.Exercise);
+        props.navigation.navigate('Montando seu Treino');
+    }        
+    
+    
+
         const renderChests = ({ item }: { item: TrainingDataType }) => (
-            <View>
-                <Text > {item.Exercise}</Text>
-            </View>
+            <TouchableOpacity onPress={() => handleClickTraining(item)}>
+                <View style={{marginBottom: 2, display:'flex', flex: 1, flexDirection: 'row'}}>
+                    <Text style={{color: '#eaeaea', fontSize: 14}}> {item.Exercise}</Text>
+                    <Image source={require('../../../../assets/add.png')} style={{width:15, height: 15}}/>
+                </View>
+            </TouchableOpacity>
+           
         );
 
         const[showChestTraining, setShowChestTraining] = useState(false);
@@ -149,9 +162,11 @@ export const TrainingsStackScreen = () => {
        }, [])
 
        const renderBacks = ({ item }: { item: TrainingDataType }) => (
-        <View>
-            <Text > {item.Exercise}</Text>
-        </View>
+        <TouchableOpacity onPress={() => handleClickTraining(item)}>
+            <View>
+                <Text> {item.Exercise}</Text>
+            </View>
+        </TouchableOpacity>
     );
 
        const [showBacksTraining, setShowBacksTraining] = useState(false);
@@ -206,9 +221,11 @@ export const TrainingsStackScreen = () => {
     }, []);
 
     const renderShoulders = ({ item }: { item: TrainingDataType }) => (
-        <View>
-            <Text > {item.Exercise}</Text>
-        </View>
+        <TouchableOpacity onPress={() => handleClickTraining(item)}>
+            <View>
+                <Text > {item.Exercise}</Text>
+            </View>
+        </TouchableOpacity>
     );
 
     const [showShouldersTraining, setShowShoulderTraining] = useState(false);
@@ -262,9 +279,11 @@ export const TrainingsStackScreen = () => {
     }, []);
 
     const renderTrapeze = ({ item }: { item: TrainingDataType }) => (
-        <View>
-            <Text > {item.Exercise}</Text>
-        </View>
+        <TouchableOpacity onPress={() => handleClickTraining(item)}>
+            <View>
+                <Text > {item.Exercise}</Text>
+            </View>
+        </TouchableOpacity>
     );
 
     const [showTrapezeTrainings, setShowTrapezeTrainings] = useState(false);
@@ -319,9 +338,11 @@ export const TrainingsStackScreen = () => {
         }, [])
 
         const renderTriceps = ({ item }: { item: TrainingDataType }) => (
-            <View>
-                <Text > {item.Exercise}</Text>
-            </View>
+            <TouchableOpacity onPress={() => handleClickTraining(item)}>
+                <View>
+                    <Text > {item.Exercise}</Text>
+                </View>
+            </TouchableOpacity>
         );
 
         const [showTricepsTraining, setShowTricepsTraining] = useState(false);
@@ -376,9 +397,11 @@ export const TrainingsStackScreen = () => {
         }, [])
 
         const renderBiceps = ({ item }: { item: TrainingDataType }) => (
-            <View>
-                <Text > {item.Exercise}</Text>
-            </View>
+            <TouchableOpacity onPress={() => handleClickTraining(item)}>
+                <View>
+                    <Text > {item.Exercise}</Text>
+                </View>
+            </TouchableOpacity>
         );
 
         const [showBicepsTraining, setShowBicepsTraining] = useState(false);
@@ -432,9 +455,11 @@ export const TrainingsStackScreen = () => {
         }, []);
 
         const renderForearm = ({ item }: { item: TrainingDataType }) => (
+            <TouchableOpacity onPress={() => handleClickTraining(item)}>
             <View>
                 <Text > {item.Exercise}</Text>
             </View>
+            </TouchableOpacity>
         );
 
         const [showForearmTraining, setShowForearmTraining] = useState(false);
@@ -487,9 +512,11 @@ export const TrainingsStackScreen = () => {
         }, [])
 
         const renderGlute = ({ item }: { item: TrainingDataType }) => (
-            <View>
-                <Text > {item.Exercise}</Text>
-            </View>
+            <TouchableOpacity onPress={() => handleClickTraining(item)}>
+                <View>
+                    <Text > {item.Exercise}</Text>
+                </View>
+            </TouchableOpacity>
         );
 
         const[showGluteTraining, setShowGluteTraining] = useState(false);
@@ -543,9 +570,11 @@ export const TrainingsStackScreen = () => {
         }, []);
 
         const renderQuadriceps = ({ item }: { item: TrainingDataType }) => (
+            <TouchableOpacity onPress={() => handleClickTraining(item)}>
             <View>
                 <Text > {item.Exercise}</Text>
             </View>
+            </TouchableOpacity>
         );
 
         const [showQuadricepsTraining, setShowQuadricepsTraining] = useState(false);
@@ -600,9 +629,11 @@ export const TrainingsStackScreen = () => {
         }, [])
 
         const renderPosterior = ({ item }: { item: TrainingDataType }) => (
-            <View>
-                <Text > {item.Exercise}</Text>
-            </View>
+            <TouchableOpacity onPress={() => handleClickTraining(item)}>
+                <View>
+                    <Text > {item.Exercise}</Text>
+                </View>
+            </TouchableOpacity>
         );
 
         const [showPosteriorTraining, setShowPosteriorTraining] = useState(false);
@@ -656,9 +687,11 @@ export const TrainingsStackScreen = () => {
         }, [])
 
         const renderCalf = ({ item }: { item: TrainingDataType }) => (
-            <View>
-                <Text > {item.Exercise}</Text>
-            </View>
+            <TouchableOpacity onPress={() => handleClickTraining(item)}>
+                <View>
+                    <Text > {item.Exercise}</Text>
+                </View>
+            </TouchableOpacity>
         );
 
         const [showCalfTraining, setShowCalfTraining] = useState(false);
@@ -713,9 +746,11 @@ export const TrainingsStackScreen = () => {
         }, []);
 
         const renderAbs = ({ item }: { item: TrainingDataType }) => (
-            <View>
-                <Text > {item.Exercise}</Text>
-            </View>
+            <TouchableOpacity onPress={() => handleClickTraining(item)}>
+                <View>
+                    <Text > {item.Exercise}</Text>
+                </View>
+            </TouchableOpacity>
         );
 
         const [showAbsTraining, setShowAbsTraining] = useState(false);
@@ -741,6 +776,10 @@ export const TrainingsStackScreen = () => {
             } else if(showAbsTraining == true){
                 setShowAbsTraining(false);
             }
+        }
+
+        const handleSeeTraining = () => {
+            props.navigation.navigate('Treinos');
         }
 
     return (
@@ -856,6 +895,10 @@ export const TrainingsStackScreen = () => {
                             renderItem={renderAbs}
                         />
                      }
+
+                     <TouchableOpacity style={styles.buttonSeeTraining} onPress={handleSeeTraining}>
+                            <Text style={styles.textSeeTraining}>Ver seus treinos</Text>
+                     </TouchableOpacity>
             </View>
                 
     )}

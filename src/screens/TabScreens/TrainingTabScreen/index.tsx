@@ -6,7 +6,7 @@ import { styles } from "./styles";
 export const TrainingTabScreen = (props: any) => {
 
     const handleGoToMakeTraining = () => {
-        props.navigation.navigate('Monte seu treino');
+        props.navigation.navigate('Montando seu treino');
     }
 
     

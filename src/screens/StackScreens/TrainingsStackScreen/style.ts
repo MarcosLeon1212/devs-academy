@@ -24,6 +24,20 @@ export const styles = StyleSheet.create({
         borderRadius: 10,
         width:80,
         alignItems: 'center'
-    }
+    },
 
+    buttonSeeTraining: {
+        margin: 10,
+        backgroundColor: '#a079f0',
+        width: 100,
+        alignItems: 'center',
+        borderColor: '#a079f0',
+        borderWidth: 1,
+        borderRadius: 20
+    },
+
+    textSeeTraining: {
+        color: '#eaeaea',
+        
+    }
 })

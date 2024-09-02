@@ -8,6 +8,8 @@ import { SupportStackScreen } from "../screens/StackScreens/SupportStackScreen";
 import { MainTab } from "./MainTab";
 import { TeacherTab } from "./TeacherTab";
 import { TrainingsStackScreen } from "../screens/StackScreens/TrainingsStackScreen";
+import { MountTrainingStackScreen } from "../screens/StackScreens/MountTrainingStackScreen";
+import { DaysTrainingScreen } from "../screens/StackScreens/DaysTrainingStackScreen";
 
 
 
@@ -94,6 +96,35 @@ export const MainStack = (props: any) => {
                 <Stack.Screen 
                     name="Monte seu treino"
                     component={TrainingsStackScreen}
+                    options={{
+                        headerStyle:{
+                            backgroundColor: '#2d3846'
+                        },
+
+                        headerTitleStyle:{
+                            color: '#eaeaea'
+                        }
+                    }}
+                />
+
+                <Stack.Screen 
+                    name="Montando seu Treino"
+                    component={MountTrainingStackScreen}
+                    options={{
+                        headerTransparent: true,
+                        headerShown: false,
+                        headerStyle:{
+                            backgroundColor: '#2d3846',
+                        },
+                        headerTitleStyle:{
+                            color: '#eaeaea'
+                        }
+                    }}                    
+                />
+
+                <Stack.Screen 
+                    name="Montando seu treino"
+                    component={DaysTrainingScreen}
                     options={{
                         headerStyle:{
                             backgroundColor: '#2d3846'
